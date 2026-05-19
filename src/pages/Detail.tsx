@@ -392,7 +392,7 @@ export default function Detail({
             >
               <MessageCircle className="size-7.5 text-primary md:size-8 md:group-hover:text-text-dark" />
               <span className="hidden text-20-24 text-primary md:block md:group-hover:text-text-dark">
-                Comments (20)
+                Comments
               </span>
               {isCommentOpen ? (
                 <ChevronUp className="hidden size-8 text-primary md:block md:group-hover:text-text-dark" />

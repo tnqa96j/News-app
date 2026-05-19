@@ -117,7 +117,7 @@ export default function CommentList({
             title={`No ${isReply ? "Replies" : "Comments"} Yet`}
             description={`Be the first to leave a ${isReply ? "reply" : "comment"}.`}
             Icon={MessageCircle}
-            className="w-full"
+            className="w-full mb-15"
           />
         ) : (
           <>

@@ -9,6 +9,7 @@ import {
   type Params,
   useSearchParams,
   useOutlet,
+  matchPath,
 } from "react-router-dom";
 import Footer from "@/components/Footer";
 import { Mask, DotLoading } from "@/components/Mask";
@@ -25,19 +26,13 @@ export interface RouteComponentProps<K extends string = string> {
   usp: URLSearchParams;
 }
 
-const Element: FC<IRoute> = ({ component: Component, meta, path }) => {
+const Element: FC<IRoute> = ({ component: Component, path }) => {
   // 獲取路由資訊，藉由props傳遞給'page'元件
   const navigate = useNavigate(),
     location = useLocation(),
     params = useParams(),
     [usp] = useSearchParams(),
     dispatch = useAppDispatch();
-
-  /* Page title */
-  useEffect(() => {
-    const title = meta.title || "Daily News";
-    document.title = title;
-  }, [meta]);
 
   /* 登入狀態校驗 */
   const { info, status } = useAppSelector((state) => state.user);
@@ -109,7 +104,14 @@ const Element: FC<IRoute> = ({ component: Component, meta, path }) => {
 const Layout = () => {
   const location = useLocation();
   const outlet = useOutlet(); // 取得當前路由對應的子元件
-  // const navType = useNavigationType();
+
+  /* Page title */
+  // document title 每次 pathname 變化都會重跑，不受 KeepAlive 影響
+  useEffect(() => {
+    const matched = routes.find((r) => matchPath(r.path, location.pathname));
+    const title = matched?.meta?.title || "Daily News";
+    if (title) document.title = title;
+  }, [location.pathname]);
 
   // keepAlive機制：根據location.pathname來決定cache key，當pathname相同時，重複使用同一個cache，保持元件狀態；當pathname不同時，切換到新的cache，顯示新的元件
   const currentCacheKey = useMemo(() => location.pathname, [location.pathname]);
