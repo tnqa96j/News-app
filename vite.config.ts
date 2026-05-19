@@ -13,6 +13,7 @@ export default defineConfig({
   },
   /* 跨域設置 */
   server: {
+    // vite proxy只有本機開發server有用，部署上線之後就消失
     proxy: {
       "/api": {
         target: "http://localhost:7100",

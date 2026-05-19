@@ -25,6 +25,8 @@ interface HttpConfig {
   signal?: AbortSignal | null;
 }
 
+const BASE_URL = import.meta.env.VITE_API_URL ?? "";
+
 async function http<T>(config: HttpConfig = {}): Promise<T> {
   const defaultConfig: Required<
     Omit<HttpConfig, "url" | "body" | "params" | "signal">
@@ -56,8 +58,8 @@ async function http<T>(config: HttpConfig = {}): Promise<T> {
   if (!url) throw new TypeError("url must be required");
   const finalUrl: string =
     params && isPlainObject(params)
-      ? `${url}${url.includes("?") ? "&" : "?"}${qs.stringify(params)}`
-      : url;
+      ? `${BASE_URL}${url}${url.includes("?") ? "&" : "?"}${qs.stringify(params)}`
+      : `${BASE_URL}${url}`;
 
   // 處理Http method種類
   const finalMethod: string = method.toUpperCase();
