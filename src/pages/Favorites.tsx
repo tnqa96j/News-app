@@ -79,7 +79,7 @@ export default function Favorites() {
         className="-ml-7.5 flex w-auto md:[&>div:nth-child(2)]:mt-12 lg:[&>div:nth-child(2)]:mt-16"
         columnClassName="pl-7.5 bg-clip-paddding flex flex-col md:gap-6"
       >
-        {Array.from({ length: 6 }, (val, i) => i).map((index) => (
+        {Array.from({ length: 6 }, (_val, i) => i).map((index) => (
           <div
             key={index}
             className={cn("mb-6 flex gap-5 px-5 py-2.5", "md:flex-col")}

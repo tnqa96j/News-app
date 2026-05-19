@@ -232,7 +232,7 @@ export default function Detail({
 
         {/* content */}
         <div className="flex flex-col gap-4 p-base">
-          {Array.from({ length: 20 }).map((val, i) => (
+          {Array.from({ length: 20 }).map((_val, i) => (
             <Skeleton className={cn("h-5", "md:h-6")} key={i} />
           ))}
         </div>

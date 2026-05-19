@@ -81,7 +81,7 @@ export default function CommentList({
   if (isLoading) {
     commentList =  (
       <div className="flex flex-col gap-10 p-base md:px-0 md:gap-15">
-        {Array.from({ length: 4 }, (val, i) => i).map((index) => {
+        {Array.from({ length: 4 }, (_val, i) => i).map((index) => {
           return (
             <section key={index}>
               {/* meta */}

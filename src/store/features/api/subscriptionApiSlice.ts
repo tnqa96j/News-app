@@ -14,7 +14,7 @@ export const subscriptionApiSlice = createApi({
         url: `/api/user/subscriptions/${sourceId}`,
         method: "GET",
       }),
-      providesTags: (result, error, sourceId) => [
+      providesTags: (_result, _error, sourceId) => [
         {
           type: "Subscriptions",
           id: sourceId,
@@ -69,7 +69,7 @@ export const subscriptionApiSlice = createApi({
           method: "POST",
           body: { sourceId, sourceName },
         }),
-        invalidatesTags: (result, error, { sourceId }) => [
+        invalidatesTags: (_result, _error, { sourceId }) => [
           "Subscriptions",
           {
             type: "Subscriptions",
@@ -84,7 +84,7 @@ export const subscriptionApiSlice = createApi({
         url: `/api/user/subscriptions/${sourceId}`,
         method: "DELETE",
       }),
-      invalidatesTags: (result, error, sourceId) => [
+      invalidatesTags: (_result, _error, sourceId) => [
         "Subscriptions",
         {
           type: "Subscriptions",

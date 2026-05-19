@@ -24,7 +24,7 @@ const TIME_TAGS = ["All", "Today", "Yesterday"];
 const SubLoading = () => {
   return (
     <>
-      {Array.from({ length: 10 }, (val, i) => i).map((index) => (
+      {Array.from({ length: 10 }, (_val, i) => i).map((index) => (
         <div
           className={cn(
             "flex w-17.5 flex-col items-center gap-2 px-3 py-1",
@@ -45,7 +45,7 @@ const TagsLoading = () => {
   return (
     <>
       <div className="scrollbar-hide flex gap-2 overflow-x-scroll py-5">
-        {Array.from({ length: 6 }, (val, i) => i).map((index) => (
+        {Array.from({ length: 6 }, (_val, i) => i).map((index) => (
           <Skeleton
             key={index}
             className="h-8 w-25 shrink-0 rounded-full md:h-10 md:w-30"
@@ -59,7 +59,7 @@ const TagsLoading = () => {
 const NewsLoading = () => {
   return (
     <section className="grid md:grid-cols-2">
-      {Array.from({ length: 6 }, (val, i) => i).map((index) => (
+      {Array.from({ length: 6 }, (_val, i) => i).map((index) => (
         <div key={index} className="flex flex-col gap-2 px-3 py-4 md:gap-5">
           <Skeleton className="aspect-video w-full" />
           <div className="flex flex-col gap-3">

@@ -63,7 +63,7 @@ export default function Home() {
         {/* date */}
         <Skeleton className="my-3 h-3 w-full md:my-5 md:h-6 lg:my-8" />
         {/* news items */}
-        {Array.from({ length: 5 }, (val, i) => i).map((index) => (
+        {Array.from({ length: 5 }, (_val, i) => i).map((index) => (
           <div
             className={cn(
               "flex h-25 w-full flex-row items-center justify-between gap-5 px-5 py-2.5",

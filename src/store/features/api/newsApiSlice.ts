@@ -61,7 +61,7 @@ export const newsApiSlice = createApi({
         url: `/api/news/${newsId}`,
         method: "GET",
       }),
-      providesTags: (result, error, newsId) => [
+      providesTags: (_result, _error, newsId) => [
         { type: "NewsDetail", id: newsId }, // 用newsId標記這筆快取，可以精確地讓某篇文章的快取失效
       ],
     }),

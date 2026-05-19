@@ -14,7 +14,7 @@ export const favoritesApiSlice = createApi({
         url: `/api/user/favorites/${newsId}`,
         method: "GET",
       }),
-      providesTags: (result, error, newsId) => [
+      providesTags: (_result, _error, newsId) => [
         {
           type: "Favorites",
           id: newsId,
@@ -66,7 +66,7 @@ export const favoritesApiSlice = createApi({
         method: "POST",
         body: { newsId },
       }),
-      invalidatesTags: (result, error, newsId) => [
+      invalidatesTags: (_result, _error, newsId) => [
         "Favorites", // 讓getFavorites list 失效
         {
           // 讓該篇新聞(newsId)的check favorited失效
@@ -107,7 +107,7 @@ export const favoritesApiSlice = createApi({
           patchResult.undo();
         }
       },
-      invalidatesTags: (result, error, newsId) => [
+      invalidatesTags: (_result, _error, newsId) => [
         "Favorites",
         {
           type: "Favorites",

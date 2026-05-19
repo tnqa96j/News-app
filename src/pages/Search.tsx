@@ -60,10 +60,10 @@ export default function Search({ usp }: RouteComponentProps) {
         {/* header */}
         <div className="flex items-center justify-between gap-3 px-5 pt-5 pb-2 md:pt-5 md:pb-5">
           <Skeleton className="h-6 w-50 grow-0 md:h-7" />
-          <Skeleton className="h-6 w-[150px] shrink-0 md:h-7" />
+          <Skeleton className="h-6 w-37.5 shrink-0 md:h-7" />
         </div>
 
-        {Array.from({ length: 5 }, (val, i) => i).map((index) => (
+        {Array.from({ length: 5 }, (_val, i) => i).map((index) => (
           <div className={cn("w-full p-5", "", "")} key={index}>
             {/* title */}
             <Skeleton className="mb-2 h-7 w-full md:h-8" />
