@@ -56,7 +56,7 @@ export default function Detail({
   /* GlobalState */
   const { isLoggedIn } = useUser(),
     { isMobile } = useDeviceWidth();
-
+  
   /* RTK Query */
   const { data, isError, isLoading, isSuccess } = useGetNewsDetailQuery(
       params.id ?? "",
