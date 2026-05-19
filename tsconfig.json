@@ -1,15 +1,15 @@
+/* 
+連結tsconfig.app.json和tsconfig.node.json
+tsconfig.app.json：負責範圍src/中的程式碼，主要設定DOM、React JSX
+tsconfig.node.json：負責範圍vite.config.ts（Node.js 環境），主要設定Node types
+src/和vite.config.ts跑在不同環境：
+* src/index.tsx         → 跑在瀏覽器  → 需要 DOM、React
+* vite.config.ts        → 跑在 Node   → 需要 Node types
+*/
 {
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "noUnusedLocals": false,
-    "noUnusedParameters": false
-  }
+  ]
 }
